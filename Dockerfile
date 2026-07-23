@@ -2,9 +2,8 @@ FROM grafana/grafana:13.1.1
 
 USER root
 
-# Create entrypoint that fixes volume permissions at runtime,
-# then drops to the grafana user before starting Grafana
-RUN printf '#!/bin/sh\nset -e\nchown -R 472:472 /var/lib/grafana 2>/dev/null || true\nexec gosu grafana /run.sh\n' > /docker-entrypoint.sh && chmod +x /docker-entrypoint.sh
+# Fix volume permissions at runtime, then hand off to Grafana's run.sh
+RUN printf '#!/bin/sh\nset -e\nchown -R 472:472 /var/lib/grafana 2>/dev/null || true\nexec /run.sh\n' > /docker-entrypoint.sh && chmod +x /docker-entrypoint.sh
 
 ENV GF_SECURITY_ALLOW_EMBEDDING=false \
     GF_SERVER_HTTP_PORT=3000 \
