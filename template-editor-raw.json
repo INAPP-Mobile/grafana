@@ -60,7 +60,7 @@
     "description": "Log to console (Railway captures stdout)"
   },
   "RAILWAY_RUN_UID": {
-    "value": "472",
-    "description": "Run as Grafana user (472) for volume permission compatibility"
+    "value": "0",
+    "description": "Run as root so entrypoint can chown the volume at startup. Grafana's /run.sh drops to UID 472 internally."
   }
 }
