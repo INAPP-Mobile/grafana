@@ -1,4 +1,8 @@
 {
+  "PORT": {
+    "value": "3000",
+    "description": "Railway HTTP port (must match GF_SERVER_HTTP_PORT)"
+  },
   "GF_SECURITY_ADMIN_USER": {
     "value": "admin",
     "description": "Grafana admin username"
@@ -7,9 +11,21 @@
     "value": "${{secret(16)}}",
     "description": "Grafana admin password — auto-generated. Save it after deploy."
   },
+  "GF_SECURITY_SECRET_KEY": {
+    "value": "${{secret(32)}}",
+    "description": "Session encryption key — auto-generated. Changing it invalidates all sessions."
+  },
   "GF_SERVER_HTTP_PORT": {
     "value": "3000",
-    "description": "HTTP listen port (must match EXPOSE in Dockerfile)"
+    "description": "HTTP listen port (must match PORT and EXPOSE in Dockerfile)"
+  },
+  "GF_SERVER_HTTP_ADDR": {
+    "value": "0.0.0.0",
+    "description": "Bind address (0.0.0.0 for all interfaces)"
+  },
+  "GF_SERVER_ROOT_URL": {
+    "value": "https://${{grafana.RAILWAY_PUBLIC_DOMAIN}}",
+    "description": "Public-facing URL — uses Railway domain. Required for correct redirects."
   },
   "GF_PATHS_DATA": {
     "value": "/var/lib/grafana",
@@ -30,5 +46,21 @@
   "GF_SECURITY_ALLOW_EMBEDDING": {
     "value": "false",
     "description": "Allow Grafana dashboards to be embedded in iframes"
+  },
+  "GF_USERS_ALLOW_SIGN_UP": {
+    "value": "false",
+    "description": "Disable public user registration"
+  },
+  "GF_ANALYTICS_REPORTING_ENABLED": {
+    "value": "false",
+    "description": "Disable telemetry reporting"
+  },
+  "GF_LOG_MODE": {
+    "value": "console",
+    "description": "Log to console (Railway captures stdout)"
+  },
+  "RAILWAY_RUN_UID": {
+    "value": "472",
+    "description": "Run as Grafana user (472) for volume permission compatibility"
   }
 }
