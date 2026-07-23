@@ -1,0 +1,18 @@
+{
+  "GF_SECURITY_ADMIN_USER": {
+    "value": "admin",
+    "description": "Grafana admin username"
+  },
+  "GF_SECURITY_ADMIN_PASSWORD": {
+    "value": "${{secret(16)}}",
+    "description": "Grafana admin password — auto-generated. Save it after deploy."
+  },
+  "GF_SERVER_HTTP_PORT": {
+    "value": "3000",
+    "description": "HTTP listen port (must match EXPOSE in Dockerfile)"
+  },
+  "GF_SECURITY_ALLOW_EMBEDDING": {
+    "value": "false",
+    "description": "Allow Grafana dashboards to be embedded in iframes"
+  }
+}
