@@ -63,4 +63,3 @@ This template deploys Grafana 13.1.1 on Railway with a persistent volume for dat
 ### Deployment Dependencies
 
 This template has no required external services. For multi-source monitoring, deploy Prometheus, InfluxDB, or other data sources as sibling services in the same Railway project.
-# grafana-deploy-trigger
