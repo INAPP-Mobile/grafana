@@ -2,7 +2,7 @@
 
 Open-source observability platform for real-time metrics, logs, and alerting across any infrastructure stack.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/tNMQxQ)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.com/deploy/grafana-3)
 
 ## Features
 
